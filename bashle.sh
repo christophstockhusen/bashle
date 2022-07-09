@@ -74,7 +74,7 @@ done < "$1"
 # Select random word form list
 
 num_words="${#words[@]}"
-word="${words[$(( $RANDOM % $num_words ))]^^}"
+word="${words[$(( RANDOM % num_words ))]^^}"
 
 
 # Show initial hint
@@ -103,7 +103,7 @@ done
 
 for (( guess_no=0; guess_no<6; guess_no++ )); do
     while true; do
-        read guess
+        read -r guess
         guess="${guess^^}"
         
         if [ "${#guess}" -ne "${#word}" ]; then
